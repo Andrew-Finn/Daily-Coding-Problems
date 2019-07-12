@@ -23,6 +23,6 @@ if __name__ == '__main__':
     test.enqueue("1")
     test.enqueue("2")
     test.enqueue("3")
-    assert test.dequeue() == "1"#
+    assert test.dequeue() == "1"
     assert test.dequeue() == "2"
     assert test.dequeue() == "3"
