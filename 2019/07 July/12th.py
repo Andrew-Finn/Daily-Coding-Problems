@@ -2,7 +2,8 @@
 #
 # This problem was asked by Microsoft.
 #
-# Given a 2D matrix of characters and a target word, write a function that returns whether the word can be found in the
+# Given a 2D matrix of characters and a target word(#Problem changed to find all english words of max length), write a
+# function that returns whether the word can be found in the
 # matrix by going left-to-right, or up-to-down.
 #
 # [['F', 'A', 'C', 'I'],
@@ -17,8 +18,8 @@ def left_to_right(m):
     printed = False
     dic = enchant.Dict("en_UK")
     for line in m:
-        if dic.check("".join(line[::-1])):
-            print("Word found:", "".join(line[::-1]))
+        if dic.check("".join(line)):
+            print("Word found:", "".join(line))
             printed = True
     return printed
 
@@ -54,7 +55,7 @@ if __name__ == '__main__':
     matrix_check([['F', 'A', 'C', 'I'],
                   ['O', 'B', 'Q', 'P'],
                   ['D', 'N', 'G', 'B'],
-                  ['M', 'A', 'S', 'S']])
+                  ['M', 'A', 'S', 'G']])
     print("\nTest 2 - Sample")
     matrix_check([['F', 'A', 'C', 'I'],
                   ['O', 'B', 'Q', 'P'],
