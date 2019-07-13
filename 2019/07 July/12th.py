@@ -2,8 +2,7 @@
 #
 # This problem was asked by Microsoft.
 #
-# Given a 2D matrix of characters and a target word(#Problem changed to find all english words of max length), write a
-# function that returns whether the word can be found in the
+# Given a 2D matrix of characters and a target word, write a function that returns whether the word can be found in the
 # matrix by going left-to-right, or up-to-down.
 #
 # [['F', 'A', 'C', 'I'],
@@ -11,42 +10,32 @@
 #  ['A', 'N', 'O', 'B'],
 #  ['M', 'A', 'S', 'S']]
 
-import enchant
 
-
-def left_to_right(m):
-    printed = False
-    dic = enchant.Dict("en_UK")
+def left_to_right(m, find):
     for line in m:
-        if dic.check("".join(line)):
-            print("Word found:", "".join(line))
-            printed = True
-    return printed
+        if "".join(line) == find:
+            print(True, "-", find, "found")
+            return True
 
 
-def up_to_down(m):
-    printed = False
-    dic = enchant.Dict("en_UK")
+def up_to_down(m, find):
     for i in range(len(m[0])):
         vert = []
         for line in m:
             vert.append(line[i])
-        if dic.check("".join(vert)):
-            print("Word found:", "".join(vert))
-            printed = True
-    return printed
+        if "".join(vert) == find:
+            print(True, "-", find, "found")
+            return True
 
 
-def matrix_check(m):
-    word_found = False
-    if left_to_right(m):
-        word_found = True
-    if up_to_down(m):
-        word_found = True
-    if word_found:
-        print("True : Word(s) found")
-    else:
-        print("No word found")
+def matrix_check(m, find):
+    found = False
+    if left_to_right(m, find):
+        found = True
+    elif up_to_down(m, find):
+        found = True
+    if not found:
+        print("False - Word not found")
 
 
 if __name__ == '__main__':
@@ -55,9 +44,14 @@ if __name__ == '__main__':
     matrix_check([['F', 'A', 'C', 'I'],
                   ['O', 'B', 'Q', 'P'],
                   ['D', 'N', 'G', 'B'],
-                  ['M', 'A', 'S', 'G']])
-    print("\nTest 2 - Sample")
+                  ['M', 'A', 'S', 'G']], "RAND")
+    print("\nTest 2 - Sample 1")
     matrix_check([['F', 'A', 'C', 'I'],
                   ['O', 'B', 'Q', 'P'],
                   ['A', 'N', 'O', 'B'],
-                  ['M', 'A', 'S', 'S']])
+                  ['M', 'A', 'S', 'S']], "FOAM")
+    print("\nTest 3 - Sample 2")
+    matrix_check([['F', 'A', 'C', 'I'],
+                  ['O', 'B', 'Q', 'P'],
+                  ['A', 'N', 'O', 'B'],
+                  ['M', 'A', 'S', 'S']], "MASS")
