@@ -11,8 +11,7 @@
 
 def max_sum(l):
     l = sorted(l)
-    out = [l[0] * l[1] * l[-1], l[-1] * l[-2] * l[-3]]  # More efficient ways but this is the simplest
-    return max(out)
+    return max([l[0] * l[1] * l[-1], l[-1] * l[-2] * l[-3]])  # More efficient ways but this is the simplest
 
 
 if __name__ == '__main__':

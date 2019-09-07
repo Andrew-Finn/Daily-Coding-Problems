@@ -9,7 +9,7 @@
 
 import random
 
-ranprob = random.randint(1,99)
+ranprob = random.randint(1, 99)
 print("toss_biased probability: {}:{}".format(ranprob, 100 - ranprob))
 
 
