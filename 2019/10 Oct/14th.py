@@ -16,18 +16,10 @@ def rearrange_palindrome(s):
             continue
         lcount[letter] = 1
 
-    oddcheck = True
-    for n in lcount.values():
-        if n % 2 == 0:
-            continue
-        elif n == 1:
-            if oddcheck:
-                oddcheck = False
-                continue
-            return False
-        else:
-            return False
-    return True
+    l = list(lcount.values())
+    if l.count(2) + l.count(1) == len(s) // 2 + l.count(1) and l.count(1) <= 1:
+        return True
+    return False
 
 
 if __name__ == '__main__':
