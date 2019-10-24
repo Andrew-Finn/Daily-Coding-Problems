@@ -8,11 +8,11 @@
 
 
 def first_recurring(s):
-    found = {}
+    found = []
     for letter in s:
         if letter in found:
             return letter
-        found[letter] = 0
+        found.append(letter)
     return None
 
 
