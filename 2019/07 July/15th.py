@@ -33,5 +33,4 @@ if __name__ == '__main__':
     for i in range(rounds):
         if unbiased_toss() == "Heads":
             heads += 1
-    tails = rounds - heads
-    print("Heads: {:2f}%\nTails: {:2f}%".format(tails / rounds * 100, heads / rounds * 100))
+    print("Heads: {:2f}%\nTails: {:2f}%".format((rounds - heads) / rounds * 100, heads / rounds * 100))

@@ -28,4 +28,4 @@ def find_nth_perfect(n):
 
 
 if __name__ == '__main__':
-    print(find_nth_perfect(100))
+    print(find_nth_perfect(110))
