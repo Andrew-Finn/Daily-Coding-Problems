@@ -13,4 +13,5 @@ def next_permutation(i):
     return int("".join(map(str, l)))
 
 
-print(next_permutation(48975))
+if __name__ == '__main__':
+    print(next_permutation(48975))
