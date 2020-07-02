@@ -20,7 +20,7 @@ func findSmallestIndex(arr [] int) int{
 }
 
 func main() {
-	slc  := [] int {-5, -3, 2, 3}
+	slc := [] int {-5, -3, 2, 3}
 	fmt.Println(findSmallestIndex(slc))
 	return
 }
