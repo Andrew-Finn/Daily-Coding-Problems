@@ -1,0 +1,18 @@
+# Good morning! Here's your coding interview problem for today.
+#
+# This problem was asked by Twitter.
+#
+# Given a list of numbers, create an algorithm that arranges them in order to form the largest possible integer. For
+# example, given [10, 7, 76, 415], you should return 77641510.
+from itertools import permutations
+
+
+def create_largest_int(l):
+    output = []
+    for i in permutations(l, len(l)):
+        output.append("".join([str(x) for x in i]))
+    return max(output)
+
+
+if __name__ == '__main__':
+    print(create_largest_int([10, 7, 76, 415]))
